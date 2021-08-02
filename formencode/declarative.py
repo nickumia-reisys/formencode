@@ -157,7 +157,7 @@ class Declarative(six.with_metaclass(DeclarativeMeta, object)):
     def __call__(self, *args, **kw):
         current = self.__dict__.copy()
         current.update(kw)
-        return self.__class__(*args, **current)
+        return self.__class__(self, *args, **current)
 
     @classmethod
     def singleton(cls):
